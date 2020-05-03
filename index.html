@@ -20,10 +20,8 @@
 
     <button id="submitbtn">生成</button>
 
-    <table>
+    <table id="main-table"></table>
 
-    </table>
-    
     <script src="https://code.jquery.com/jquery-3.5.0.slim.js" integrity="sha256-sCexhaKpAfuqulKjtSY7V9H7QT0TCN90H+Y5NlmqOUE=" crossorigin="anonymous"></script>
     <script>
         let randomHeartRate = ( lowest, highest ) => {
@@ -32,14 +30,14 @@
 
         let genRandomHeartRate = ( low, high, num, type ) => {
             num = parseInt(num);
-            let heartRateArray = [];
+            let html = "";
             if ( type == "weeks" || type == "week" ){
                 for ( i = 0 ; i < num ; i++ ) {
-                    let heartRateSubArray = [];
+                    html += "<tr>";
                     for ( j = 0 ; j < 5 ; j++ ) {
-                        heartRateSubArray.push(randomHeartRate(low, high));
+                        html += "<td>" + randomHeartRate(low, high) + "</td>";
                     }
-                    heartRateArray.push(heartRateSubArray);
+                    html += "</tr>";
                 }
                 randomHeartRate(low, high);
             } else if ( type == "days" || type == "day" ) {
