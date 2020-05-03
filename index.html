@@ -36,13 +36,14 @@
     <button id="submitbtn">生成</button>
 
     <table id="main-table">
-        <th>
-            <td>週一</td>
-            <td>週二</td>
-            <td>週三</td>
-            <td>週四</td>
-            <td>週五</td>
-        </th>
+        <tr>
+            <th>週次</th>
+            <th>週一</th>
+            <th>週二</th>
+            <th>週三</th>
+            <th>週四</th>
+            <th>週五</th>
+        </tr>
     </table>
 
     <script src="https://code.jquery.com/jquery-3.5.0.slim.js" integrity="sha256-sCexhaKpAfuqulKjtSY7V9H7QT0TCN90H+Y5NlmqOUE=" crossorigin="anonymous"></script>
@@ -55,7 +56,7 @@
             num = parseInt(num);
             let html = "";
                 for ( i = 0 ; i < num ; i++ ) {
-                    html += "<tr>";
+                    html += "<tr><td>" + ( i + 1 ) + "</td>";
                     for ( j = 0 ; j < 5 ; j++ ) {
                         html += "<td>" + randomHeartRate(low, high) + "</td>";
                     }
@@ -67,15 +68,15 @@
         }
 
         $("#submitbtn").on("click", ()=>{
-            let lowest = $("#lowest").val();
-            let highest = $("#highest").val();
-            let weeknum = $("#weeknum").val();
+            let lowest = parseInt($("#lowest").val());
+            let highest = parseInt($("#highest").val());
+            let weeknum = parseInt($("#weeknum").val());
             console.log(lowest, highest, weeknum);
             genRandomHeartRate(lowest, highest, weeknum);
         });
     </script>
     <footer>
-        <span>Ver. 1.0.0</span>
+        <span>Ver. 1.0.3</span>
     </footer>
 </body>
 </html>
