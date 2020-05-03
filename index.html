@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span>最低心率</span>
+    <input id="lowest" />
+    <br/>
+
+    <span>最高心率</span>
+    <input id="highest" />
+    <br/>
+
+    <span>星期數</span>
+    <input id="weeknum" />
+    <br/>
+
+    <button id="submitbtn">生成</button>
+
+    <table>
+
+    </table>
+    
+    <script src="https://code.jquery.com/jquery-3.5.0.slim.js" integrity="sha256-sCexhaKpAfuqulKjtSY7V9H7QT0TCN90H+Y5NlmqOUE=" crossorigin="anonymous"></script>
+    <script>
+        let randomHeartRate = ( lowest, highest ) => {
+            return Math.floor(Math.random() * (highest - lowest + 1) + lowest);
+        }
+
+        let genRandomHeartRate = ( low, high, num, type ) => {
+            num = parseInt(num);
+            let heartRateArray = [];
+            if ( type == "weeks" || type == "week" ){
+                for ( i = 0 ; i < num ; i++ ) {
+                    let heartRateSubArray = [];
+                    for ( j = 0 ; j < 5 ; j++ ) {
+                        heartRateSubArray.push(randomHeartRate(low, high));
+                    }
+                    heartRateArray.push(heartRateSubArray);
+                }
+                randomHeartRate(low, high);
+            } else if ( type == "days" || type == "day" ) {
+                for ( i = 0 ; i < num ; i++ ) {
+                    heartRateArray.push(randomHeartRate(low, high));
+                }
+            }
+            console.log(heartRateArray);
+        }
+
+        $("#submitbtn").on("click", ()=>{
+            let lowest = $("#lowest").val();
+            let highest = $("#highest").val();
+            let weeknum = $("#weeknum").val();
+            genRandomHeartRate(lowest, highest, weeknum, "weeks");
+        });
+    </script>
+
+</body>
+</html>
