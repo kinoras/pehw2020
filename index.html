@@ -31,7 +31,6 @@
         let genRandomHeartRate = ( low, high, num, type ) => {
             num = parseInt(num);
             let html = "";
-            if ( type == "weeks" || type == "week" ){
                 for ( i = 0 ; i < num ; i++ ) {
                     html += "<tr>";
                     for ( j = 0 ; j < 5 ; j++ ) {
@@ -40,19 +39,19 @@
                     html += "</tr>";
                 }
                 randomHeartRate(low, high);
-            }
             $("#main-table").append(html);
+            console.log(html)
         }
 
         $("#submitbtn").on("click", ()=>{
             let lowest = $("#lowest").val();
             let highest = $("#highest").val();
             let weeknum = $("#weeknum").val();
-            genRandomHeartRate(lowest, highest, weeknum, "weeks");
+            genRandomHeartRate(lowest, highest, weeknum);
         });
     </script>
     <footer>
-        <span>Ver. 0.0.5</span>
+        <span>Ver. 0.0.6</span>
     </footer>
 </body>
 </html>
