@@ -40,12 +40,8 @@
                     html += "</tr>";
                 }
                 randomHeartRate(low, high);
-            } else if ( type == "days" || type == "day" ) {
-                for ( i = 0 ; i < num ; i++ ) {
-                    heartRateArray.push(randomHeartRate(low, high));
-                }
             }
-            console.log(heartRateArray);
+            
         }
 
         $("#submitbtn").on("click", ()=>{
@@ -56,7 +52,7 @@
         });
     </script>
     <footer>
-        <span>Ver. 0.0.3</span>
+        <span>Ver. 0.0.4</span>
     </footer>
 </body>
 </html>
