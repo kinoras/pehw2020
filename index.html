@@ -4,6 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        table, td, th {  
+        border: 1px solid #ddd;
+        text-align: left;
+        }
+
+        table {
+        border-collapse: collapse;
+        width: 100%;
+        }
+
+        th, td {
+        padding: 15px;
+        }
+    </style>
 </head>
 <body>
     <span>最低心率</span>
@@ -20,7 +35,15 @@
 
     <button id="submitbtn">生成</button>
 
-    <table id="main-table"></table>
+    <table id="main-table">
+        <th>
+            <td>週一</td>
+            <td>週二</td>
+            <td>週三</td>
+            <td>週四</td>
+            <td>週五</td>
+        </th>
+    </table>
 
     <script src="https://code.jquery.com/jquery-3.5.0.slim.js" integrity="sha256-sCexhaKpAfuqulKjtSY7V9H7QT0TCN90H+Y5NlmqOUE=" crossorigin="anonymous"></script>
     <script>
@@ -51,7 +74,7 @@
         });
     </script>
     <footer>
-        <span>Ver. 0.0.6</span>
+        <span>Ver. 1.0.0</span>
     </footer>
 </body>
 </html>
